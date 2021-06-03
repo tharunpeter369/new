@@ -1,0 +1,134 @@
+
+
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="container">
+                                    <div class="row">
+                                        <h2 class="text-center mt-3">Order management</h2>
+                                        <div class="col-sm-6 p-3" style="margin-left: 3px;">
+                                            {{!-- <button class="btn btn-primary btn-xs" style="margin-bottom: 10px"
+                                                onclick="window.location.href='/admin/addnewuserByadmin'">ADD
+                                                USER</button> --}}
+                                            {{!-- <button class="btn btn-danger btn-xs"
+                                                onclick="window.location.href='/admin/productmanagement'">LOGOUT</button> --}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                           
+                                            <table id="datatable" class="table table-striped table-bordered"
+                                                cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <th>Date</th>
+                                                        <th>Ordered item</th>
+                                                        <th>Total Price</th>
+                                                        <th>Address</th>
+                                                        <th>Method</th>
+                                                         <th>Status</th>
+                                                        <th>MANAGE</th>
+                                                        {{!-- <th>Delete</th> --}}
+                                                    </tr>
+                                                </thead>
+                                                 {{#each orderdetails}}
+
+                                                <tbody>
+                                          
+                                                    <tr>
+                                                        
+                                                        <td>{{this.useremail}}</td>
+                                                        <td>{{this.date}}</td>
+                                                        <td>{{#each products}}*{{product.productname}} <br> {{/each}}</td>
+                                                        <td>Rs.{{this.totalprice}}</td>
+                                                        <td style="text-transform: capitalize;">{{deliverydetails.firstname}},{{deliverydetails.country}},{{deliverydetails.street}},{{deliverydetails.state}},PIN:{{deliverydetails.pincode}},MOB:{{deliverydetails.mobile}}</td>
+                                                         <td>{{this.paymentmethod}}</td>
+                                                         <td>{{this.status}}</td>
+                                                        {{!-- <td><button class="btn btn-primary btn-xs"
+                                                                onclick="window.location.href='/admin/edituser/{{this._id}}'">Edit</button>
+                                                        </td> --}}
+
+                                                        {{!-- <td><button class="btn btn-primary btn-xs"
+                                                                onclick="window.location.href='/admin/edituser/{{this._id}}'">Edit</button>
+                                                        </td> --}}
+
+                                                        {{!-- <td><button class="btn btn-warning btn-xs" name="block"
+                                                                onclick="return confirm('are you sure you want block this user!!')?window.location.href='/admin/blockuser/{{this._id}}/block' : ''">Block</button>
+                                                        </td> --}}
+
+
+                                                       
+
+                                                      
+                                                        {{#if this.remove}}
+                                                        <td><button class="btn btn-warning btn-xs" name="undo"
+                                                                onclick="return confirm('are you sure you want bring back this order!!')?window.location.href='/admin/cancelorder/{{this._id}}/undo' : ''">Undo cancel</button>
+                                                        </td>
+                                                        {{else}}
+                                                        <td><button class="btn btn-success btn-xs"  name="cancel"
+                                                                onclick="return confirm('are you sure you want cancel this order!!')?window.location.href='/admin/cancelorder/{{this._id}}/cancel' : ''">Cancel Order</button>
+                                                        </td>
+                                                        {{/if}}
+
+                                                    </tr>
+                                              
+
+                                                </tbody>
+                                                     {{/each}}
+                                            </table>
+                                       
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×</button>
+                                            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="alert alert-danger"><span
+                                                    class="glyphicon glyphicon-warning-sign"></span>
+                                                Are you
+                                                sure you want to delete this Record?</div>
+
+                                        </div>
+                                        <div class="modal-footer ">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal"><span
+                                                    class="glyphicon glyphicon-remove"></span> No</button>
+                                            <button class="btn btn-outline-danger my-2 my-sm-0"
+                                                type="submit">Delete</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+  

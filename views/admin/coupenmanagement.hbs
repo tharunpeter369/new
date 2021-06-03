@@ -1,0 +1,136 @@
+
+   
+   
+   
+   
+   
+   
+   
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+
+
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="row">
+                                        <h2 class="text-center mt-3">COUPON MANAGEMENT</h2>
+                                        <div class="col-sm-6" style="margin-left: 3px;">
+                                            <button class="btn btn-primary btn-xs" style="margin-bottom: 10px"
+                                                onclick="window.location.href='/admin/addcoupen'">ADD
+                                                COUPON</button>
+                                            {{!-- <button class="btn btn-danger btn-xs"
+                                                onclick="window.location.href='/admin/productmanagement'">LOGOUT</button> --}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table id="datatable" class="table table-striped table-bordered"
+                                                cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Coupen Code</th>
+                                                        <th>Offer</th>
+                                                        <th>Validity</th>
+                                                        {{!-- <th>Stock</th>
+                                                        <th>Price</th> --}}
+                                                        {{!-- <th>Edit</th> --}}
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each allcoupen}}
+                                                    <tr>
+                                                        <td>{{this.coupenname}}</td>
+                                                        <td>{{this.coupencode}}</td>
+                                                        <td>{{this.coupenvalue}}</td>
+                                                         <td>{{this.coupenvaliddate}}</td>
+                                                        {{!-- <td>frr</td>
+                                                        <td>rtt</td> --}}
+                                                        {{!-- <td><button class="btn btn-primary btn-xs"
+                                                                onclick="window.location.href='/admin/'">Edit</button>
+                                                        </td> --}}
+                                                        <td><button class="btn btn-danger btn-xs"
+                                                                onclick="return confirm ('youre deleting!!')?window.location.href='/admin/deletecoupen/{{this._id}}' : ''">Delete</button>
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+
+                                                {{!-- <tbody>
+                                                    {{#each product}}
+                                                    <tr>
+                                                        <td>{{this.productname}}</td>
+                                                        <td><img style="width: 60px; height: 80px;"
+                                                                src="/productimages/1{{this._id}}.jpeg" alt=""></td>
+                                                        <td>{{this.productdescription}}</td>
+                                                        <td>{{this.category}}</td>
+                                                         <td>{{this.brand}}</td>
+                                                        <td>{{this.productquantity}}</td>
+                                                        <td>{{this.productprice}}</td>
+                                                        <td><button class="btn btn-primary btn-xs"
+                                                                onclick="window.location.href='/admin/editproductdetails/{{this._id}}'">Edit</button>
+                                                        </td>
+                                                        <td><button class="btn btn-danger btn-xs"
+                                                                onclick="return confirm ('youre deleting!!')?window.location.href='/admin/deleteproduct/{{this._id}}' : ''">Delete</button>
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody> --}}
+                                                
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">×</button>
+                                            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="alert alert-danger"><span
+                                                    class="glyphicon glyphicon-warning-sign"></span>
+                                                Are you
+                                                sure you want to delete this Record?</div>
+
+                                        </div>
+                                        <div class="modal-footer ">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal"><span
+                                                    class="glyphicon glyphicon-remove"></span> No</button>
+                                            <button class="btn btn-outline-danger my-2 my-sm-0"
+                                                type="submit">Delete</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                   <!-- MAIN CONTENT-->

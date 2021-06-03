@@ -1,0 +1,210 @@
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+
+
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Add</strong> Product
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="/admin/editproductadmin" enctype="multipart/form-data"
+                                            method="post" id="form" name="form" class="form-horizontal">
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label class=" form-control-label">Admin</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <p class="form-control-static">Tharun</p>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Product
+                                                        name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="productname" name="productname"
+                                                        value="{{productdata.productname}}" placeholder="product name"
+                                                        class="form-control">
+                                                    <small class="form-text text-muted">This is a help text</small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input"
+                                                        class=" form-control-label">Description</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="productdescription" id="productdescription" rows="9"
+                                                        placeholder="Content..."
+                                                        class="form-control">{{productdata.productdescription}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class="form-control-label"></label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <div class="form-group">
+                                                            <label for="price" class="control-label mb-1">Price</label>
+                                                            <input id="productprice" name="productprice" type="number"
+                                                                class="form-control"
+                                                                value="{{productdata.productprice}}"
+                                                                placeholder="price">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <label for="" class="control-label mb-1">Quantity</label>
+                                                        <div class="input-group">
+                                                            <input id="productquantity" name="productquantity"
+                                                                type="number" class="form-control"
+                                                                value="{{productdata.productquantity}}"
+                                                                placeholder="quantity">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="x_card_code"
+                                                            class="control-label mb-1">Category</label>
+
+                                                        <div class="input-group">
+                                                            <select name="category" id="category" class="form-control">
+                                                                <option value="{{productdata.category}}">
+                                                                    {{productdata.category}}</option>
+                                                                {{#each categorydata}}
+                                                                <option onselect="" id="{{this.category}}"
+                                                                    value="{{this.category}}" onclick="">
+                                                                    {{this.category}}
+                                                                </option>
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="x_card_code"
+                                                            class="control-label mb-1">BRAND</label>
+                                                        <div class="input-group">
+                                                            <select name="brand" id="brand" class="form-control">
+                                                                <option value="{{productdata.brand}}">
+                                                                    {{productdata.brand}}</option>
+
+                                                                {{#categorydata}}
+                                                                {{#brand}}
+                                                                <option value="{{this}}">{{this}}</option>
+                                                                {{/brand}}
+                                                                {{/categorydata}}
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-input" class=" form-control-label">Image1</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <img style="width: 3rem; margin: 10px" src="/productimages/1{{productdata._id}}.jpeg" id="img1">
+                                                    <input type="file" id="fileinputimage1" name="fileinputimage1"
+                                                        class="form-control-file" onchange="viewimage1(event)">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                  
+                                                    <label for="file-input" class=" form-control-label">Image2</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <img style="width: 3rem; margin: 10px" src="/productimages/2{{productdata._id}}.jpeg" id="img2">
+                                                    <input type="file" id="fileinputimage2" name="fileinputimage2"
+                                                        class="form-control-file" onchange="viewimage2(event)">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="file-input" class=" form-control-label">Image3</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                        <img style="width: 3rem; height: 6rem; margin: 10px;" src="/productimages/3{{productdata._id}}.jpeg" id="img3">
+                                                    <input type="file" id="fileinputimage3" name="fileinputimage3"
+                                                        class="form-control-file" onchange="viewimage3(event)">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group" hidden>
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Product
+                                                        ID</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="productid" name="productid"
+                                                        value="{{productdata._id}}" placeholder="product name"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-lg float-right">
+                                                    Submit
+                                                </button>
+
+                                            </div>
+                                        </form>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a
+                                            href="https://colorlib.com">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+
+
+            <script>
+
+                
+                function viewimage1(event){
+                        document.getElementById('img1').src=URL.createObjectURL(event.target.files[0])
+                }
+
+                 function viewimage2(event){
+                        document.getElementById('img2').src=URL.createObjectURL(event.target.files[0])
+                }
+
+                 function viewimage3(event){
+                        document.getElementById('img3').src=URL.createObjectURL(event.target.files[0])
+                }
+
+
+            </script>
+  

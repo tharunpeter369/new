@@ -1,0 +1,312 @@
+
+
+
+
+
+
+
+
+        <!--====== App Content ======-->
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb__wrap">
+                                <ul class="breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="/">Home</a>
+                                    </li>
+                                    <li class="is-marked">
+
+                                        <a href="">Edit Profile</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary">EDIT PROFILE</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row row--center">
+                            <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                                <div class="l-f-o">
+                                    <div class="l-f-o__pad-box">
+                                        <h1 class="gl-h1">PERSONAL INFORMATION</h1>
+                                        <form action="/editprofile" method="POST" class="l-f-o__form" id="registerform"
+                                            name="registerform">
+                                            {{! <div class="gl-s-api">
+                                                <div class="u-s-m-b-15">
+
+                                                    <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i
+                                                            class="fab fa-facebook-f"></i>
+
+                                                        <span>Signup with Facebook</span></button>
+                                                </div>
+                                                <div class="u-s-m-b-30">
+
+                                                    <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i
+                                                            class="fab fa-google"></i>
+
+                                                        <span>Signup with Google</span></button>
+                                                </div>
+                                            </div> }}
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-fname">FIRST NAME *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text"
+                                                    id="userfname" name="userfname" value="{{userdata.username}}" required oninput="nameValid()"
+                                                    placeholder="First Name" />
+                                                <span style="color: brown;" id="nameReq"></span>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-lname">LAST NAME *</label>
+
+                                                <input class="input-text input-text--primary-style" type="text"
+                                                    id="userlname" name="userlname" value="{{userdata.userlname}}" required oninput="latnameValid()"
+                                                    placeholder="Last Name" />
+                                                <span style="color: brown;" id="lastnameReq"></span>
+                                            </div>
+
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-email">E-MAIL *</label>
+
+                                                <input class="input-text input-text--primary-style" type="email"
+                                                    id="useremail" name="useremail" value="{{userdata.useremail}}" required oninput="emailValid()"
+                                                    placeholder="Enter E-mail" />
+                                                <span style="color: brown;" id="emailErr"></span>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-email">MOBILE *</label>
+
+                                                <input class="input-text input-text--primary-style" type="tel"
+                                                    id="usermobile" name="usermobile" value="{{userdata.usermobile}}" required pattern="[7-9]{1}[0-9]{9}"
+                                                    placeholder="Enter Mobile number" />
+                                                {{!-- <span style="color: brown;" id="emailErr"></span> --}}
+                                            </div>
+                                            {{!-- <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-password">PASSWORD *</label>
+
+                                                <input class="input-text input-text--primary-style" type="password"
+                                                    id="password" name="password" required oninput="passValid()"
+                                                    placeholder="Enter Password" />
+                                                <span style="color: brown;" id="passLen"></span>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="reg-password">RE-PASSWORD
+                                                    *</label>
+
+                                                <input class="input-text input-text--primary-style" type="password"
+                                                    id="repassword" name="repassword" required
+                                                    placeholder="Re-Enter Password" />
+                                            </div> --}}
+                                            
+                                            <div class="u-s-m-b-30" hidden>
+
+                                                <input class="input-text input-text--primary-style" type="text"
+                                                    id="block" name="userid" value={{userdata._id}}>
+                                            </div> 
+                                            <div class="u-s-m-b-15">
+
+                                                <button class="btn btn--e-transparent-brand-b-2"
+                                                    type="submit">UPDATE</button>
+                                            </div>
+
+                                            <a class="gl-link" href="/">Return to Store</a>
+
+                                            {{#if emailexist}}
+                                            {{! <label for="remember-me"
+                                                class="label-agree-term"><span><span></span></span>Remember me</label>
+                                            }}
+                                            <span class="" style="color:red;" id="invalid">User
+                                                already Existed</span>
+                                            {{/if}}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 2 ======-->
+        </div>
+        <!--====== End - App Content ======-->
+
+
+
+
+        <script>
+
+        setTimeout(function () {
+            document.getElementById("invalid").innerHTML = "";
+        }, 4000);
+
+        document.registerform.addEventListener("submit", function (event) {
+            var email = this.querySelector("input[id=useremail]").value;
+            var name = this.querySelector("input[id=userfname]").value;
+            var lastname = this.querySelector("input[id=userlname]").value;
+            var pass = this.querySelector("input[id=password]").value;
+            var pass2 = this.querySelector("input[id=repassword]").value;
+            var regx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (email.trim() == "" || !email.match(regx)) {
+                document.getElementById("useremail").focus();
+                event.preventDefault();
+            } else if (name.trim() == "" || name.length < 3) {
+                document.getElementById("userfname").focus();
+                event.preventDefault();
+            } else if (lastname.trim() == "") {
+                document.getElementById("userlname").focus();
+                event.preventDefault();
+            } else if (pass.trim() == "" || pass.length < 3) {
+                document.getElementById("password").focus();
+                event.preventDefault();
+            } else if (pass.trim() != pass2.trim()) {
+                document.getElementById("repassword").focus();
+                event.preventDefault();
+            }
+        });
+
+
+        {{!-- function passValid() {
+            var text = document.getElementById("password").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("passLen").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 3) {
+                document.getElementById("passLen").innerHTML = "Minimum Length required";
+            } else {
+
+                document.getElementById("passLen").innerHTML = " ";
+
+            }
+        }
+
+        function matchPassword() {
+            var pw1 = document.getElementById("password").value;
+            // console.log(pw1)
+            var pw2 = document.getElementById("repassword").value;
+            // console.log(pw1)
+            if (pw1 == "" && pw2 == "") {
+                alert('field required')
+            } else {
+                if (pw1 != pw2) {
+                    alert("Passwords did not match");
+                }
+            }
+        } --}}
+
+
+        function emailValid() {
+            var text = document.getElementById("useremail").value;
+            var letters = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+            if (text == "") {
+                document.getElementById("emailErr").innerHTML = " required";
+                //   document.getElementById("nameLen").style.display = "none";
+                //   document.getElementById("nameErr").style.display = "none";
+            }
+            else if (!text.match(letters)) {
+                document.getElementById("emailErr").innerHTML = "Valid email required";
+
+                // document.getElementById("emailErr").style.display = "block";
+                // document.getElementById("emailReq").style.display = "none";
+                //   document.getElementById("nameLen").style.display = "none";
+
+            }
+            else {
+                document.getElementById("emailErr").innerHTML = " ";
+                //   document.getElementById("nameErr").style.display = "none";
+
+            }
+        }
+
+        function nameValid() {
+            var text = document.getElementById("userfname").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("nameReq").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 3) {
+
+                document.getElementById("nameReq").innerHTML = "Minimum Length required";
+
+            } else if (!text.match(letters)) {
+
+                document.getElementById("nameReq").innerHTML = "Only letters are allowed";
+
+            } else {
+
+                document.getElementById("nameReq").innerHTML = " ";
+                document.getElementById("nameReq").innerHTML = " ";
+
+            }
+        }
+
+        function latnameValid() {
+            var text = document.getElementById("userlname").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("lastnameReq").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 1) {
+
+                document.getElementById("lastnameReq").innerHTML = "Minimum Length required";
+
+            } else if (!text.match(letters)) {
+
+                document.getElementById("lastnameReq").innerHTML = "Only letters are allowed";
+
+            } else {
+
+                document.getElementById("lastnameReq").innerHTML = " ";
+                document.getElementById("lastnameReq").innerHTML = " ";
+
+            }
+        }
+
+
+
+
+    </script>

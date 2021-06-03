@@ -1,0 +1,65 @@
+>
+
+
+
+
+
+
+
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+
+
+
+                            <div id="login-row" class="row justify-content-center align-items-center">
+                                <div id="login-column" class="col-md-6">
+                                    <div id="login-box" class="col-md-12">
+                                        <form id="login-form" class="form" action="/admin/edituser/" method="post">
+                                            <h3 class="text-center text-info">Edit Form</h3>
+                                            <div class="form-group">
+                                                <label for="username" class="text-info">Firstname:</label><br>
+                                                <input type="text" name="username" id="username" class="form-control"
+                                                    value="{{editformdata.username}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username" class="text-info">Lastname:</label><br>
+                                                <input type="text" name="userlname" id="username" class="form-control"
+                                                    value="{{editformdata.userlname}}">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="text-info">Email:</label><br>
+                                                <input type="email" name="useremail" id="email" class="form-control"
+                                                    value="{{editformdata.useremail}}">
+                                            </div>
+
+                                            <div class="form-group" style="display: none;">
+                                                <label for="username" class="text-info">ID:</label><br>
+                                                <input type="text" name="id" id="username" class="form-control"
+                                                    value="{{editformdata._id}}">
+                                            </div>
+                                            <div class="form-group">
+                                                {{!-- <label for="remember-me" class="text-info"><span>Remember
+                                                        me</span> <span><input id="remember-me" name="remember-me"
+                                                            type="checkbox"></span></label><br> --}}
+                                                <input type="submit" class="btn btn-info btn-md" value="submit">
+                                            </div>
+                                            {{!-- <div id="register-link" class="text-right">
+                                                <a href="#" class="text-info">Register here</a>
+                                            </div> --}}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN CONTENT-->
+  

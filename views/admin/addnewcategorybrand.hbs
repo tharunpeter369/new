@@ -1,0 +1,237 @@
+
+
+
+
+    <!--====== Google Font ======-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <!--====== Vendor Css ======-->
+    <link rel="stylesheet" href="/user/css/vendor.css">
+
+    <!--====== Utility-Spacing ======-->
+    <link rel="stylesheet" href="/user/css/utility.css">
+
+    <!--====== App ======-->
+    <link rel="stylesheet" href="/user/css/app.css">
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+
+
+
+
+
+
+
+                        <div class="section__content">
+                            <div class="container">
+                                <div class="row row--center">
+                                    <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                                        <div class="l-f-o">
+                                            <div class="l-f-o__pad-box">
+                                                <h1 class="gl-h1">CATEGORY NAME</h1>
+                                                <form action="/admin/addnewcategory" method="POST" class="l-f-o__form"
+                                                    id="registerform" name="registerform">
+                                                    <div class="u-s-m-b-30">
+
+                                                        <label class="gl-label" for="reg-fname">category name *</label>
+
+                                                        <input  class="input-text input-text--primary-style" type="text"
+                                                            id="category" name="category" required oninput="nameValid() ,this.value = this.value.toUpperCase()"
+                                                            placeholder="category">
+                                                            <span style="color: brown;" id="nameReq"></span>
+                                                    </div>
+                                                    
+
+                                                    <div class="u-s-m-b-15">
+                                                        <button  class="btn btn--e-transparent-brand-b-2"
+                                                            type="submit">CREATE</button>
+                                                    </div>
+                                             {{#if exist}}
+                                            {{!-- <label for="remember-me"
+                                                class="label-agree-term"><span><span></span></span>Remember me</label>
+                                            --}}
+                                            <span class=" " style="color:red;" id="invalid">Brand already Existed</span>
+                                            {{/if}}
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    
+    <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+    <script>
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+    <!--====== Vendor Js ======-->
+    <script src="/user/js/vendor.js"></script>
+
+    <!--====== jQuery Shopnav plugin ======-->
+    <script src="/user/js/jquery.shopnav.js"></script>
+
+    <!--====== App ======-->
+    <script src="/user/js/app.js"></script>
+
+
+
+        <script>
+
+        setTimeout(function () {
+            document.getElementById("invalid").innerHTML = "";
+        }, 4000);
+
+
+
+        document.registerform.addEventListener("submit", function (event) {
+    
+            var name = this.querySelector("input[id=brandname]").value;
+
+            if (name.trim() == "" || name.length < 2) {
+                document.getElementById("userfname").focus();
+                event.preventDefault();
+            } 
+        });
+
+
+        function passValid() {
+            var text = document.getElementById("password").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("passLen").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 3) {
+                document.getElementById("passLen").innerHTML = "Minimum Length required";
+            } else {
+
+                document.getElementById("passLen").innerHTML = " ";
+
+            }
+        }
+
+        function matchPassword() {
+            var pw1 = document.getElementById("password").value;
+            // console.log(pw1)
+            var pw2 = document.getElementById("repassword").value;
+            // console.log(pw1)
+            if (pw1 == "" && pw2 == "") {
+                alert('field required')
+            } else {
+                if (pw1 != pw2) {
+                    alert("Passwords did not match");
+                }
+            }
+        }
+
+
+        function emailValid() {
+            var text = document.getElementById("useremail").value;
+            var letters = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+            if (text == "") {
+                document.getElementById("emailErr").innerHTML = " required";
+                //   document.getElementById("nameLen").style.display = "none";
+                //   document.getElementById("nameErr").style.display = "none";
+            }
+            else if (!text.match(letters)) {
+                document.getElementById("emailErr").innerHTML = "Valid email required";
+
+                // document.getElementById("emailErr").style.display = "block";
+                // document.getElementById("emailReq").style.display = "none";
+                //   document.getElementById("nameLen").style.display = "none";
+
+            }
+            else {
+                document.getElementById("emailErr").innerHTML = " ";
+                //   document.getElementById("nameErr").style.display = "none";
+
+            }
+        }
+
+        function nameValid() {
+            var text = document.getElementById("category").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("nameReq").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 2) {
+
+                document.getElementById("nameReq").innerHTML = "Minimum Length required";
+
+            } else if (!text.match(letters)) {
+
+                document.getElementById("nameReq").innerHTML = "Only letters are allowed";
+
+            } else {
+
+                document.getElementById("nameReq").innerHTML = " ";
+                document.getElementById("nameReq").innerHTML = " ";
+
+            }
+        }
+
+        function latnameValid() {
+            var text = document.getElementById("userlname").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("lastnameReq").innerHTML = "required ";
+
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 1) {
+
+                document.getElementById("lastnameReq").innerHTML = "Minimum Length required";
+
+            } else if (!text.match(letters)) {
+
+                document.getElementById("lastnameReq").innerHTML = "Only letters are allowed";
+
+            } else {
+
+                document.getElementById("lastnameReq").innerHTML = " ";
+                document.getElementById("lastnameReq").innerHTML = " ";
+
+            }
+        }
+
+
+
+
+    </script>
+
+    
+</body>

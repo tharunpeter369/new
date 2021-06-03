@@ -1,0 +1,222 @@
+
+
+        <!--====== App Content ======-->
+        <div class="app-content">
+
+            <!--====== Section 1 ======-->
+            <div class="u-s-p-y-60">
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="breadcrumb">
+                            <div class="breadcrumb__wrap">
+                                <ul class="breadcrumb__list">
+                                    <li class="has-separator">
+
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li class="is-marked">
+                                        <a href="signin.html">Signin</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--====== End - Section 1 ======-->
+
+
+            <!--====== Section 2 ======-->
+            <div class="u-s-p-b-60">
+
+                <!--====== Section Intro ======-->
+                <div class="section__intro u-s-m-b-60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section__text-wrap">
+                                    <h1 class="section__heading u-c-secondary">ALREADY REGISTERED?</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Intro ======-->
+
+
+                <!--====== Section Content ======-->
+                <div class="section__content">
+                    <div class="container">
+                        <div class="row row--center">
+                            <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                                <div class="l-f-o">
+                                    <div class="l-f-o__pad-box">
+                                        <h1 class="gl-h1">I'M NEW CUSTOMER</h1>
+
+                                        <span class="gl-text u-s-m-b-30">By creating an account with our store, you will
+                                            be able to move through the checkout process faster, store shipping
+                                            addresses, view and track your orders in your account and more.</span>
+                                        <div class="u-s-m-b-15">
+
+                                            <a class="l-f-o__create-link btn--e-transparent-brand-b-2"
+                                                href="/signup">CREATE AN ACCOUNT</a>
+                                        </div>
+                                        <h1 class="gl-h1">SIGNIN</h1>
+
+                                        <span class="gl-text u-s-m-b-30">If you have an account with us, please log
+                                            in.</span>
+                                        <form class="l-f-o__form" action="/signin" method="POST" id="signinform"
+                                            name="signinform">
+                                            <div class="gl-s-api">
+                                                <div class="u-s-m-b-15">
+
+                                                    <button onclick="window.location.href='/facebook'" class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i
+                                                            class="fab fa-facebook-f"></i>
+
+                                                        <span>Signin with Facebook</span></button>
+                                                </div>
+                                                <div class="u-s-m-b-15">
+
+                                                    <button onclick="window.location.href='/google'" class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i
+                                                            class="fab fa-google"></i>
+                                                        <span>Signin with Google</span></button>
+                                                </div>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="login-email">E-MAIL *</label>
+
+                                                <input class="input-text input-text--primary-style" type="email"
+                                                    required id="useremail" name="useremail" oninput="emailValid()" placeholder="Enter E-mail">
+                                                     <span id="emailErr"></span>
+                                            </div>
+                                            <div class="u-s-m-b-30">
+
+                                                <label class="gl-label" for="login-password">PASSWORD *</label>
+
+                                                <input class="input-text input-text--primary-style" type="password"
+                                                    id="userpassword" required name="userpassword" oninput="passValid()"
+                                                    placeholder="Enter Password">
+                                                    <span id="passLen"></span>
+                                            </div>
+                                            <div class="gl-inline">
+                                                <div class="u-s-m-b-30">
+
+                                                    <button class="btn btn--e-transparent-brand-b-2"
+                                                        type="submit">LOGIN</button>
+                                                </div>
+                                                {{#if usererr}}
+                                                <div class="u-s-m-b-30">
+                                                    <span class=" " style="color:red;" id="invalid">Inavalid email or
+                                                        password</span>
+                                                </div>
+                                                {{/if}}
+                                            </div>
+                                            <a class="gl-link" href="/otploginpage">Sign un with OTP</a>
+                                            <div class="u-s-m-b-30">
+                                                  <a class="gl-link" href="/forgetpasswordAtLogin">Forget password</a>
+
+                                                <!--====== Check Box ======-->
+                                                <div class="check-box">
+
+                                                    <input type="checkbox" id="remember-me">
+                                                    <div class="check-box__state check-box__state--primary">
+
+                                                      
+                                                        
+
+                                                        {{!-- <label class="check-box__label" for="remember-me">Remember
+                                                            Me</label> --}}
+                                                    </div>
+                                                </div>
+                                                <!--====== End - Check Box ======-->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--====== End - Section Content ======-->
+            </div>
+            <!--====== End - Section 2 ======-->
+        </div>
+        <!--====== End - App Content ======-->
+
+
+
+
+
+
+    <script>
+        setTimeout(function () {
+            document.getElementById("invalid").innerHTML = "";
+        }, 4000);
+
+
+
+            document.signinform.addEventListener("submit", function (event) {
+            var name = this.querySelector("input[id=useremail]").value;
+            var pass = this.querySelector("input[id=userpassword]").value;
+
+            if (name.trim() == "" || name.length < 3) {
+                document.getElementById("useremail").focus();
+                event.preventDefault();
+            } else if (pass.trim() == "" || pass.length < 3) {
+                document.getElementById("userpassword").focus();
+                event.preventDefault();
+            }
+        });
+
+
+        function emailValid() {
+            var text = document.getElementById("useremail").value;
+            var letters = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+            if (text == "") {
+                document.getElementById("emailErr").innerHTML = " required";
+                //   document.getElementById("nameLen").style.display = "none";
+                //   document.getElementById("nameErr").style.display = "none";
+            }
+            else if (!text.match(letters)) {
+                document.getElementById("emailErr").innerHTML = "Valid email required";
+
+                // document.getElementById("emailErr").style.display = "block";
+                // document.getElementById("emailReq").style.display = "none";
+                //   document.getElementById("nameLen").style.display = "none";
+
+            }
+            else {
+                document.getElementById("emailErr").innerHTML = " ";
+                //   document.getElementById("nameErr").style.display = "none";
+
+            }
+        }
+
+
+        function passValid() {
+            var text = document.getElementById("userpassword").value;
+            var letters = /^[a-zA-Z\s]*$/;
+            if (text.length == 0) {
+                // document.getElementById("nameLen").style.display = "block";
+                document.getElementById("passLen").innerHTML = "required ";
+                // document.getElementById("nameErr").style.display = "none";
+            } else if (text.length < 3) {
+
+                document.getElementById("passLen").innerHTML = "Minimum Length required";
+
+            } else {
+
+                document.getElementById("passLen").innerHTML = " ";
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

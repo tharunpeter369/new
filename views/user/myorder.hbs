@@ -1,0 +1,385 @@
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="is-marked">
+
+                                <a href="/myorder">My Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+
+
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="dash">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-12">
+
+                            <!--====== Dashboard Features ======-->
+                            <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
+                                <div class="dash__pad-1">
+
+                                    <span class="dash__text u-s-m-b-16">Hello..,{{userdata.username}}</span>
+                                    <ul class="dash__f-list">
+                                        {{!-- <li>
+
+                                            <a href="dashboard.html">Manage My Account</a>
+                                        </li> --}}
+                                        <li>
+
+                                            <a href="/profile">My Profile</a>
+                                        </li>
+                                        <li>
+
+                                            <a href="/productlist">Product List</a>
+                                        </li>
+                                        <li>
+
+                                            <a href="/viewcart">My cart</a>
+                                        </li>
+                                        <li>
+
+                                            <a class="dash-active" href="/myorder">My Orders</a>
+                                        </li>
+                                        <li>
+
+                                            <a href="/placeorder">My Payment Options</a>
+                                        </li>
+                                        {{!-- <li>
+
+                                            <a href="dash-cancellation.html">My Returns & Cancellations</a>
+                                        </li> --}}
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="dash__box dash__box--bg-white dash__box--shadow dash__box--w">
+                                <div class="dash__pad-1">
+                                    <ul class="dash__w-list">
+                                        {{!-- <li>
+                                            <div class="dash__w-wrap">
+
+                                                <span class="dash__w-icon dash__w-icon-style-1"><i
+                                                        class="fas fa-cart-arrow-down"></i></span>
+
+                                                <span class="dash__w-text">4</span>
+
+                                                <span class="dash__w-name">Orders Placed</span>
+                                            </div>
+                                        </li> --}}
+                                        {{!-- <li>
+                                            <div class="dash__w-wrap">
+
+                                                <span class="dash__w-icon dash__w-icon-style-2"><i
+                                                        class="fas fa-times"></i></span>
+
+                                                <span class="dash__w-text">0</span>
+
+                                                <span class="dash__w-name">Cancel Orders</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dash__w-wrap">
+
+                                                <span class="dash__w-icon dash__w-icon-style-3"><i
+                                                        class="far fa-heart"></i></span>
+
+                                                <span class="dash__w-text">0</span>
+
+                                                <span class="dash__w-name">Wishlist</span>
+                                            </div>
+                                        </li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--====== End - Dashboard Features ======-->
+                        </div>
+                        <div class="col-lg-9 col-md-12">
+                            <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
+                                <div class="dash__pad-2">
+                                    <h1 class="dash__h1 u-s-m-b-14">My Orders</h1>
+
+                                    <span class="dash__text u-s-m-b-30">Here you can see all products that have been
+                                        delivered.</span>
+                                    {{!-- <form class="m-order u-s-m-b-30">
+                                        <div class="m-order__select-wrapper">
+
+                                            <label class="u-s-m-r-8" for="my-order-sort">Show:</label><select
+                                                class="select-box select-box--primary-style" id="my-order-sort">
+                                                <option selected>Last 5 orders</option>
+                                                <option>Last 15 days</option>
+                                                <option>Last 30 days</option>
+                                                <option>Last 6 months</option>
+                                                <option>Orders placed in 2018</option>
+                                                <option>All Orders</option>
+                                            </select>
+                                        </div>
+                                    </form> --}}
+
+                                    <div class="m-order__list">
+                                      
+                                        <div class="m-order__get">
+                                            {{#each orderproduct}}
+
+                                            <div class="manage-o__header u-s-m-b-30">
+                                                <div class="dash-l-r">
+                                                    <div>
+                                                        <div class="manage-o__text-2 u-c-secondary">ORDER SUMMERY</div>
+                                                        {{!-- <div class="manage-o__text-2 u-c-secondary">{{this._id}}
+                                                        </div> --}}
+                                                        <div class="manage-o__text u-c-silver">Placed on :{{this.date}}
+                                                        </div>
+                                                        <div class="manage-o__text u-c-silver">
+                                                            ADDRESS:{{this.deliverydetails.firstname}},
+                                                            {{this.deliverydetails.street}},{{this.deliverydetails.state}},PIN:{{this.deliverydetails.pincode}},
+                                                            MOB:{{this.deliverydetails.mobile}},
+                                                        </div>
+                                                        <div class="manage-o__text u-c-silver">TOTAL
+                                                            AMOUNT:Rs.{{this.totalprice}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="dash__link dash__link--brand">
+
+                                                            {{!-- <a href="dash-manage-order.html">MANAGE</a> --}}
+                                                            {{#if this.remove}}
+                                                            {{!-- <button class="btn btn--e-brand-b-2"  name="undo"
+                                                                    onclick="return confirm('are you sure you want bring back this order!!')?window.location.href='cancelorder/{{this._id}}/undo' : ''">Undo
+                                                                    cancel</button> --}}
+                                                            
+                                                            {{else}}
+                                                            <button class="btn btn"  style="background-color: rgb(47, 3, 245); color: rgb(255, 255, 255);" name="cancel"
+                                                                    onclick="return confirm('are you sure you want cancel this order!!')?window.location.href='cancelorder/{{this._id}}/cancel' : ''">Cancel
+                                                                    Order</button>
+
+                                                            <button class="btn btn"  style="background-color: rgb(233, 3, 245); color: rgb(5, 1, 1);" name="cancel"
+                                                                    onclick="return confirm('want to print invoice!!!')?window.location.href='printinvoice/{{this._id}}' : ''">Print Invoice
+                                                                    </button>
+                                                            {{/if}}
+                                                                <div>
+
+                                                                    <div style="margin-top: 10px;">
+                                                                        <span
+                                                            class="manage-o__badge badge--processing">{{this.status}}</span>
+
+                                                                    </div>
+
+                                                        
+                                                    </div>
+                                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            {{#each this.products}}
+                                            <div class="manage-o__description" style="margin-bottom: 8rem;">
+                                                <div class="description__container">
+                                                    <div class="description__img-wrap">
+
+                                                        <img style="width: 5rem; height: 10rem;" class="u-img-fluid"
+                                                            src="/productimages/1{{this.product._id}}.jpeg" alt="">
+                                                    </div>
+                                                    <div class="description-title">{{this.product.productname}}
+                                                        <div class="manage-o__text u-c-silver">
+                                                            {{this.product.productdescription}}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div style="margin-left: 50px;" class="description__info-wrap">
+                                                    {{!-- <div>
+
+                                                        <span
+                                                            class="manage-o__badge badge--processing">{{../this.status}}</span>
+                                                    </div> --}}
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Price:
+
+                                                            <span
+                                                                class="manage-o__text-2 u-c-secondary">Rs.{{this.product.productprice}}
+                                                            </span></span>
+                                                    </div>
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Quantity:
+
+                                                            <span
+                                                                class="manage-o__text-2 u-c-secondary"></span>{{this.quantity}}</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            {{/each}}
+
+                                            <div class="manage-o__header u-s-m-b-30">
+                                                <div class="dash-l-r">
+                                                    <div>
+                                                        <div class="manage-o__text-2 u-c-secondary">TOTAL AMOUNT:</div>
+
+                                                        {{!-- <div class="manage-o__text u-c-silver">Placed on
+                                                            {{this.data}}
+                                                        </div>
+                                                        <div class="manage-o__text u-c-silver">
+                                                            ADDRESS:{{this.deliverydetails.firstname}},
+                                                            {{this.deliverydetails.street}},{{this.deliverydetails.state}},PIN:{{this.deliverydetails.pincode}},
+                                                            MOB:{{this.deliverydetails.mobile}},
+                                                        </div>
+                                                        <div class="manage-o__text u-c-silver">TOTAL
+                                                            AMOUNT:Rs.{{this.totalprice}}
+                                                        </div> --}}
+                                                    </div>
+                                                    <div>
+                                                        <div class="dash__link dash__link--brand">
+                                                            <h3 style="color: green;">Rs.{{this.totalprice}}</h3>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </div>
+                                        {{/each}}
+
+
+                                        {{!--
+                                        <div class="m-order__get">
+                                            <div class="manage-o__header u-s-m-b-30">
+                                                <div class="dash-l-r">
+                                                    <div>
+                                                        <div class="manage-o__text-2 u-c-secondary"></div>
+                                                        <div class="manage-o__text u-c-silver">Placed on 26 Oct 2016
+                                                            09:08:37</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="dash__link dash__link--brand">
+
+                                                            <a href="dash-manage-order.html">MANAGE</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="manage-o__description">
+                                                <div class="description__container">
+                                                    <div class="description__img-wrap">
+
+                                                        <img class="u-img-fluid" src="images/product/women/product8.jpg"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="description-title">New Dress D Nice Elegant
+                                                        dfdfdfdfdfdfd</div>
+                                                </div>
+                                                <div class="description__info-wrap">
+                                                    <div>
+
+                                                        <span class="manage-o__badge badge--shipped">Shipped</span>
+                                                    </div>
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Quantity:
+
+                                                            <span class="manage-o__text-2 u-c-secondary">1</span></span>
+                                                    </div>
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Total:
+
+                                                            <span
+                                                                class="manage-o__text-2 u-c-secondary">$16.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-order__get">
+                                            <div class="manage-o__header u-s-m-b-30">
+                                                <div class="dash-l-r">
+                                                    <div>
+                                                        <div class="manage-o__text-2 u-c-secondary">Order #305423126
+                                                        </div>
+                                                        <div class="manage-o__text u-c-silver">Placed on 26 Oct 2016
+                                                            09:08:37</div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="dash__link dash__link--brand">
+
+                                                            <a href="dash-manage-order.html">MANAGE</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="manage-o__description">
+                                                <div class="description__container">
+                                                    <div class="description__img-wrap">
+
+                                                        <img class="u-img-fluid" src="images/product/men/product8.jpg"
+                                                            alt="">
+                                                    </div>
+                                                    <div class="description-title">New Fashion D Nice Elegant</div>
+                                                </div>
+                                                <div class="description__info-wrap">
+                                                    <div>
+
+                                                        <span class="manage-o__badge badge--delivered">Delivered</span>
+                                                    </div>
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Quantity:
+
+                                                            <span class="manage-o__text-2 u-c-secondary">1</span></span>
+                                                    </div>
+                                                    <div>
+
+                                                        <span class="manage-o__text-2 u-c-silver">Total:
+
+                                                            <span
+                                                                class="manage-o__text-2 u-c-secondary">$16.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 2 ======-->
+</div>
+<!--====== End - App Content ======-->

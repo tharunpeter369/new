@@ -32,7 +32,7 @@ module.exports ={
                     usermobile:userdata.usermobile,
                     userstatus:true,
                     referralcode:code,
-                    referrallink:'localhost:3000/signup?referrcode='+code,
+                    referrallink:'https://ekart.tech/signup?referrcode='+code,
                     referrcodepoint:parseInt(point),
                     usedcoupen:[]
                 })
